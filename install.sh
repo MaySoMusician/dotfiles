@@ -6,6 +6,8 @@ sudo apt-get update \
   && apt-get install -y --no-install-recommends \
   wget
 
+sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
+
 mkdir -p $HOME/.omp
 ln -s $PWD/omp.json $HOME/.omp/omp.json
 
@@ -14,7 +16,7 @@ sudo wget --progress=dot:giga \
   -O /usr/local/bin/oh-my-posh \
   && sudo chmod +x /usr/local/bin/oh-my-posh
 
-echo 'eval "$(oh-my-posh --init --shell bash --config ~/.omp/omp.json)"' >> ~/.zshrc
+echo 'eval "$(oh-my-posh init zsh --config ~/.omp/omp.json)"' >> ~/.zshrc
 
 git config --global user.name "MaySoMusician" \
   && git config --global user.email "maysomusician@gmail.com" \
